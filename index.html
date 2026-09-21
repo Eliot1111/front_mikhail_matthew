@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f5ef">
+  <meta name="description" content="Тише — простой таймер для сосредоточенной работы и список задач на день.">
+  <title>Тише — одно дело за раз</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <a class="brand" href="./index.html" aria-label="Тише — главная"><span aria-hidden="true"></span>тише</a>
+      <p>Меньше суеты. Больше смысла.</p>
+    </header>
+    <main>
+      <section class="intro" aria-labelledby="heading">
+        <h1 id="heading">Одно дело за раз.</h1>
+        <p>Освободите мысли, выберите задачу и начните с 25 минут.</p>
+      </section>
+      <div class="workspace">
+        <section class="focus" aria-label="Таймер для работы и отдыха">
+          <div class="timer-panel">
+            <div class="modes" role="group" aria-label="Режим таймера">
+              <button type="button" class="mode active" data-mode="focus" aria-pressed="true">Фокус</button>
+              <button type="button" class="mode" data-mode="break" aria-pressed="false">Перерыв</button>
+            </div>
+            <div id="timer" class="timer" role="timer" aria-label="Осталось времени">25:00</div>
+            <p id="timer-caption" class="timer-caption" role="status">Время для самого важного</p>
+            <div class="timer-actions">
+              <button type="button" id="start" class="start"><svg id="play-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4 20 12 8 20Z"/></svg><span>Начать</span></button>
+              <button type="button" id="reset" class="reset" aria-label="Сбросить таймер" title="Сбросить таймер"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5a8 8 0 1 1-4 7M8 2 5 5l3 3"/></svg></button>
+            </div>
+          </div>
+          <p class="aside">Не нужно успевать всё. Достаточно начать.</p>
+        </section>
+        <section class="tasks" aria-labelledby="tasks-heading">
+          <div class="tasks-heading"><h2 id="tasks-heading">На сегодня</h2><span id="task-count" aria-live="polite">0 / 3</span></div>
+          <form id="task-form">
+            <label class="sr-only" for="task-input">Новая задача</label>
+            <input id="task-input" name="task" placeholder="Добавить задачу" maxlength="160" autocomplete="off" required>
+            <button type="submit" class="add" aria-label="Добавить задачу"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+          </form>
+          <ul id="task-list" class="task-list"></ul>
+          <p id="empty" class="empty" hidden>Пока задач нет. Добавьте одно важное дело.</p>
+          <p class="tasks-note">Маленькие шаги — тоже движение вперёд.</p>
+        </section>
+      </div>
+    </main>
+    <footer><p>Ваше пространство для спокойной работы.</p><p id="storage-status">Задачи сохраняются в этом браузере.</p></footer>
+  </div>
+  <noscript>Включите JavaScript в браузере, чтобы пользоваться таймером и задачами.</noscript>
+</body>
+</html>
